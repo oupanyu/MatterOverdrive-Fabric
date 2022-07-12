@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "DAD",
+    "DCD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gold_ingot"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C":{
+        "item": "matteroverdrive:dilithium_crystal"
+    },
+    "D":{
+        "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:battery"
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " #X",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_axe"
+  }
+}

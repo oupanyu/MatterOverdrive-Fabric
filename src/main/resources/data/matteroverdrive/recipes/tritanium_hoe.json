@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_hoe"
+  }
+}
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_hoe"
+  }
+}

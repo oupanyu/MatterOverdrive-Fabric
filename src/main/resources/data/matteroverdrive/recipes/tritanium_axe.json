@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "X#",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_axe"
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " #X",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_axe"
+  }
+}

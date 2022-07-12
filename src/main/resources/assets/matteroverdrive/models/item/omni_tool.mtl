@@ -1,0 +1,5 @@
+# Blender 3.1.0 MTL File: 'omni_tool.blend'
+# www.blender.org
+
+newmtl OmniTool
+map_Kd matteroverdrive:item/omni_tool

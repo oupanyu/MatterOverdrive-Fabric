@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "ACA",
+    " B "
+  ],
+  "key": {
+    "A": {
+      "item": "matteroverdrive:dilithium_crystal"
+    },
+    "B": {
+      "item": "matteroverdrive:tritanium_plate"
+    },
+    "C":{
+        "item": "matteroverdrive:battery"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:hc_battery"
+  }
+}
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    " #X",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "matteroverdrive:tritanium_ingot"
+    }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_axe"
+  }
+}

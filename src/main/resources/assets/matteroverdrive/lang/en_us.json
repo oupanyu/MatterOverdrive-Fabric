@@ -1,0 +1,6 @@
+{
+  "itemGroup.matteroverdrive.main":"Matter Overdrive",
+
+"item.matteroverdrive.battery": "Battery",
+  "item.matteroverdrive.battery.energy": "%s  Energy stored"
+  }

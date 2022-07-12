@@ -1,0 +1,54 @@
+{
+  "itemGroup.matteroverdrive.main":"超能物质",
+  "itemGroup.matteroverdrive.food":"超能物质-食物",
+  "itemGroup.matteroverdrive.deco":"超能物质-装饰",
+
+  "block.matteroverdrive.tritanium_ore": "三钛矿石",
+  "block.matteroverdrive.deepslate_tritanium_ore": "深层三钛矿石",
+  "block.matteroverdrive.dilithium_ore": "二锂矿石",
+  "block.matteroverdrive.deepslate_dilithium_ore": "深层二锂矿石" ,
+  "item.matteroverdrive.tritanium_sword": "三钛合金剑",
+  "item.matteroverdrive.tritanium_axe": "三钛合金斧",
+  "item.matteroverdrive.tritanium_pickaxe": "三钛合金镐",
+  "item.matteroverdrive.tritanium_shovel": "三钛合金锹",
+  "item.matteroverdrive.tritanium_hoe": "三钛合金锄",
+  "block.matteroverdrive.tritanium_block": "三钛合金块" ,
+  "item.matteroverdrive.battery": "电池",
+  "item.matteroverdrive.battery.energy": "储存电量%s/%s E",
+  "item.matteroverdrive.hc_battery": "高能电池",
+  "item.matteroverdrive.ion_sniper": "离子狙击枪",
+  "item.matteroverdrive.omni_tool": "全效离子工具",
+  "item.matteroverdrive.phaser_rifle": "相位来复枪",
+  "item.matteroverdrive.plasma_shotgun": "相位散弹枪",
+  "item.matteroverdrive.isolinear_circuit_mk1": "等线性电路MK1",
+  "item.matteroverdrive.isolinear_circuit_mk2": "等线性电路MK2",
+  "item.matteroverdrive.isolinear_circuit_mk3": "等线性电路MK3",
+  "item.matteroverdrive.isolinear_circuit_mk4": "等线性电路MK4",
+
+
+  "item.matteroverdrive.dilithium_crystal": "二锂水晶",
+
+  "item.matteroverdrive.matter_dust": "物质粉尘",
+  "item.matteroverdrive.matter_dust_refined": "纯净的物质粉尘",
+
+
+  "item.matteroverdrive.tritanium_ingot": "三钛合金锭",
+  "item.matteroverdrive.tritanium_nugget": "三钛合金粒",
+  "item.matteroverdrive.tritanium_plate": "三钛合金板",
+  "item.matteroverdrive.tritanium_dust": "三钛合金粉",
+  "item.matteroverdrive.tritanium_helmet": "三钛头盔",
+  "item.matteroverdrive.tritanium_chestplate": "三钛胸甲",
+  "item.matteroverdrive.tritanium_leggings": "三钛护腿",
+  "item.matteroverdrive.tritanium_boots": "三钛靴子",
+
+
+
+  "item.matteroverdrive.emergency_ration": "应急营养单元",
+  "item.matteroverdrive.earl_gray_tea": "格雷伯爵茶",
+  "item.matteroverdrive.romulan_ale": "罗慕兰麦酒",
+
+  "mo.noenergy.tip": "宁的方块没电了"
+
+
+
+}

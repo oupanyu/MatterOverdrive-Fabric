@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX"
+  ],
+    "key": {
+        "X": {
+          "item": "matteroverdrive:tritanium_ingot"
+        }
+  },
+  "result": {
+    "item": "matteroverdrive:tritanium_plate"
+  }
+}

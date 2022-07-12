@@ -1,0 +1,17 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "minecraft:block/cube", "uvlock": true}
+    },
+    {
+      "apply": [
+        { "model": "matteroverdrive:block/tritanium_crate_black" },
+        { "model": "matteroverdrive:block/tritanium_crate_black", "y": 90 },
+        { "model": "matteroverdrive:block/tritanium_crate_black", "y": 180 },
+        { "model": "matteroverdrive:block/tritanium_crate_black.obj", "y": 270 },
+        { "model": "matteroverdrive:block/tritanium_crate_black.obj", "x": 90 },
+        { "model": "matteroverdrive:block/tritanium_crate_black.obj", "x": 270 }
+      ]
+    }
+  ]
+}

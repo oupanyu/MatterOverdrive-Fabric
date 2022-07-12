@@ -1,0 +1,7 @@
+
+{
+  "parent": "minecraft:block/block",
+  "model": "matteroverdrive:block/tritanium_crate_black",
+  "gui_light": "side"
+
+}

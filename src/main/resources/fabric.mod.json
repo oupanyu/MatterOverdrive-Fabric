@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "matteroverdrive",
+  "version": "${version}",
+
+  "name": "Matter Overdrive",
+  "description": "Matter Overdrive is a Minecraft mod inspired by the popular Sci-fi TV series Star Trek. It dwells in the concept of replicating and transforming one type matter into another. Although it may seem overpowered, Matter Overdrive takes a more realistic approach and requires the player to build a complex system before even the simplest replication can be achieved.",
+  "authors": [
+    "panyuou"
+  ],
+  "contact": {
+    "sources": "https://github.com/oupanyu/MatterOverdrive-Fabric"
+  },
+
+  "license": "GPL-v3.0",
+  "icon": "assets/matteroverdrive/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "matteroverdrive.MatterOverdrive"
+    ],
+    "client": [
+      "matteroverdrive.MatterOverdriveClient"
+    ]
+  },
+  "mixins": [
+    "mo.mixins.json"
+  ],
+"jars": [
+   {
+      "file": "META-INF/jars/myron/myron-1.6.3+1.18.1.jar"
+   },{
+    "file": "META-INF/jars/energy/energy-2.2.0.jar"
+  }
+],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
