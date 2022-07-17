@@ -24,7 +24,7 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
     private long maxInsert = 10000;
     private long maxOutput = 0;
 
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     public TestPowerBlockEntity(BlockPos pos, BlockState state) {
         super(MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE, pos, state, 100000, 10000, 0);

@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 public class TestScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     public TestScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(3));
+        this(syncId, playerInventory, new SimpleInventory(4));
     }
 
     @Override
@@ -25,30 +25,27 @@ public class TestScreenHandler extends ScreenHandler {
 
     public TestScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(MOScreenHandlerType.TEST_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 3);
+        checkSize(inventory, 4);
         this.inventory = inventory;
         // 玩家开启时，一些物品栏有自定义的逻辑。
         inventory.onOpen(playerInventory.player);
-
-        // 这会将槽位放置在 3×3 网格的正确位置中。这些槽位在客户端和服务器中都存在！
-        // 但是这不会渲染槽位的背景，这是 Screens job
         int m;
         int l;
-        //Our inventory
-        for (m = 0; m < 1; ++m) {
-            for (l = 0; l < 3; ++l) {
-                this.addSlot(new Slot(inventory, l + m * 3, 62 + l * 18, 17 + m * 18));
-            }
-        }
-        // 玩家物品栏
+        // 这会将槽位放置在 3×3 网格的正确位置中。这些槽位在客户端和服务器中都存在！
+        // 但是这不会渲染槽位的背景，这是 Screens job
+        this.addSlot(new Slot(inventory, 0, -69, 44));
+        this.addSlot(new Slot(inventory, 1, -69, 71));
+        this.addSlot(new Slot(inventory, 2, -69, 98));
+        this.addSlot(new Slot(inventory, 3, -2, 44));
+
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
+                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, l * 18 - 32, 84 + m * 18));
             }
         }
         // 玩家快捷栏
         for (m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
+            this.addSlot(new Slot(playerInventory, m, m * 18 - 32, 142));
         }
 
     }
