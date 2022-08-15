@@ -5,6 +5,7 @@ import matteroverdrive.common.events.MOContent;
 import matteroverdrive.common.utils.BlockUtils;
 import matteroverdrive.common.utils.ItemUtils;
 import matteroverdrive.cores.blocks.blockentity.MOBlockEntityType;
+import matteroverdrive.cores.recipe.ModRecipe;
 import net.fabricmc.api.ModInitializer;
 import matteroverdrive.cores.generates.GenInit;
 
@@ -36,5 +37,6 @@ public class MatterOverdrive implements ModInitializer {
 		ItemUtils.init();
 		BlockUtils.init();
 		MOBlockEntityType.init();
+		ModRecipe.registerRecipes();
 	  }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "matteroverdrive:insciber",
+  "ingredients": [
+    {
+      "item": "matteroverdrive:isolinear_circuit_mk1"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "tick": 200,
+  "output": {
+    "item" : "matteroverdrive:isolinear_circuit_mk2"
+  }
+}

@@ -44,7 +44,6 @@ public class TestPowerBlock extends BlockWithEntity {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity entity = world.getBlockEntity(pos);
-        if (entity instanceof TestPowerBlockEntity){
             if (((TestPowerBlockEntity) entity).EnergyStorage.amount < 1000){
                 return ActionResult.SUCCESS;
 
@@ -58,7 +57,7 @@ public class TestPowerBlock extends BlockWithEntity {
                     // 这个调用会让服务器请求客户端开启合适的 Screenhandler
                     player.openHandledScreen(screenHandlerFactory);
                 }
-            }
+
         }
 
 
@@ -69,7 +68,7 @@ public class TestPowerBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState blockState, BlockEntityType<T> blockEntityType){
-        return checkType(blockEntityType, MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE,(world1, pos, state, blockEntity) -> TestPowerBlockEntity.tickable(world1,pos,state));
+        return checkType(blockEntityType, MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE,(world1, pos, state, testPowerBlockEntity) -> TestPowerBlockEntity.tick(world1,pos,state,testPowerBlockEntity));
     }
 
     @Override

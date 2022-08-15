@@ -1,7 +1,10 @@
 package matteroverdrive.client.screen;
 
 import matteroverdrive.client.MOScreenHandlerType;
+import matteroverdrive.client.screen.slot.SlotInput;
+import matteroverdrive.client.screen.slot.SlotOutput;
 import matteroverdrive.cores.blocks.blockentity.MOBlockEntityType;
+import net.minecraft.client.util.math.Rect2i;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -33,19 +36,19 @@ public class TestScreenHandler extends ScreenHandler {
         int l;
         // 这会将槽位放置在 3×3 网格的正确位置中。这些槽位在客户端和服务器中都存在！
         // 但是这不会渲染槽位的背景，这是 Screens job
-        this.addSlot(new Slot(inventory, 0, -69, 44));
-        this.addSlot(new Slot(inventory, 1, -69, 71));
-        this.addSlot(new Slot(inventory, 2, -69, 98));
-        this.addSlot(new Slot(inventory, 3, -2, 44));
+        this.addSlot(new SlotInput(inventory, 0, -5, 35));
+        this.addSlot(new SlotInput(inventory, 1, -5, 62));
+        this.addSlot(new SlotInput(inventory, 2, -5, 89));//Battery Slot
+        this.addSlot(new SlotOutput(inventory, 3, 62, 35));
 
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, l * 18 - 32, 84 + m * 18));
+                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, l * 18 + 32, 75 + m * 18));
             }
         }
         // 玩家快捷栏
         for (m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, m * 18 - 32, 142));
+            this.addSlot(new Slot(playerInventory, m, m * 18 + 33, 133));
         }
 
     }
