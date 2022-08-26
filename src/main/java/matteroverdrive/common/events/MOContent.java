@@ -62,7 +62,7 @@ public class MOContent {
     public static final Block TRITANIUM_CRATE_BLOCK = new TritaniumCrateBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
     public static final Block TRITANIUM_CRATE_BLOCK_BLUE = new TritaniumCrateBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
 
-    public static final Block TEST_POWER_BLOCK = new TestPowerBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
+    public static final Block INSCRIBER_BLOCK = new TestPowerBlock(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
 
 
 

@@ -1,0 +1,12 @@
+{
+	"multipart": [
+		{
+			"apply": { "model": "minecraft:block/cube", "uvlock": true}
+		},
+		{
+			"apply": [
+				{ "model": "matteroverdrive:block/inscriber" }
+			]
+		}
+	]
+}

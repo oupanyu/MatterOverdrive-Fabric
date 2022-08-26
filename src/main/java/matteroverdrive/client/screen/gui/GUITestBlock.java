@@ -12,9 +12,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import team.reborn.energy.api.EnergyStorage;
 
-public class GUITestBlock extends HandledScreen<ScreenHandler> {
+public class GUITestBlock extends HandledScreen<TestScreenHandler> {
     private static final Identifier TEXTURE_BACKGROUND = new Identifier("matteroverdrive", "textures/gui/custom/inscriber.png");
-    public GUITestBlock(ScreenHandler handler, PlayerInventory inventory, Text title) {
+    public GUITestBlock(TestScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
@@ -29,7 +29,8 @@ public class GUITestBlock extends HandledScreen<ScreenHandler> {
         int y = (height - backgroundHeight) / 2 - 12;
         drawTexture(matrices, x, y, 0, 0, 225, 177);
 
-        drawTexture(matrices, x + 118, y + 39, 4, 179, 14, 42);
+        drawTexture(matrices, x + 118, y + 40, 4, 179, 14, handler.getScaledEnergyForTexture());
+        drawTexture(matrices, x + 33, y + 50, 35, 181, handler.getScaledProgressForTexture(), 18);
     }
 
     @Override

@@ -28,7 +28,7 @@ import team.reborn.energy.api.EnergyStorage;
 
 public class TestPowerBlock extends BlockWithEntity {
     public TestPowerBlock(Settings settings) {
-        super(settings);
+        super(settings.nonOpaque());
     }
 
     @Nullable
@@ -44,10 +44,6 @@ public class TestPowerBlock extends BlockWithEntity {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity entity = world.getBlockEntity(pos);
-            if (((TestPowerBlockEntity) entity).EnergyStorage.amount < 1000){
-                return ActionResult.SUCCESS;
-
-            }
             if (!world.isClient) {
                 // 这里会调用 BlockWithEntity 的 createScreenHandlerFactory 方法，会将返回的方块实体强转为
                 // 一个 namedScreenHandlerFactory。如果你的方块没有继承 BlockWithEntity，那就需要单独实现 createScreenHandlerFactory。
@@ -68,7 +64,7 @@ public class TestPowerBlock extends BlockWithEntity {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState blockState, BlockEntityType<T> blockEntityType){
-        return checkType(blockEntityType, MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE,(world1, pos, state, testPowerBlockEntity) -> TestPowerBlockEntity.tick(world1,pos,state,testPowerBlockEntity));
+        return checkType(blockEntityType, MOBlockEntityType.INSCRIBER_BLOCK_ENTITY_TYPE,(world1, pos, state, testPowerBlockEntity) -> TestPowerBlockEntity.tick(world1,pos,state,testPowerBlockEntity));
     }
 
     @Override
@@ -80,5 +76,6 @@ public class TestPowerBlock extends BlockWithEntity {
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     }
+
 }
 

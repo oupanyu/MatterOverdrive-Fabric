@@ -9,6 +9,6 @@ import net.minecraft.util.Identifier;
 public class MOScreenHandlerType {
     public static final ScreenHandlerType<TestScreenHandler> TEST_SCREEN_HANDLER;
     static {
-        TEST_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier("matteroverdrive","test_screen_handler"), TestScreenHandler::new);
+        TEST_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier("matteroverdrive","inscriber_screen_handler"), TestScreenHandler::new);
     }
 }

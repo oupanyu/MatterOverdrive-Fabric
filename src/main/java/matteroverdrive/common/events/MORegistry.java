@@ -25,7 +25,7 @@ public class MORegistry {
     public static void regEnergyBlock(Block block, String name){
         Registry.register(Registry.BLOCK, new Identifier("matteroverdrive", name), block);
         Registry.register(Registry.ITEM, new Identifier("matteroverdrive", name), new BlockItem(block, new Item.Settings().group(MatterOverdrive.GROUP_MAIN)));
-        EnergyStorage.SIDED.registerForBlockEntity((myBlockEntity, direction) -> myBlockEntity.EnergyStorage, MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE);
+        EnergyStorage.SIDED.registerForBlockEntity((myBlockEntity, direction) -> myBlockEntity.EnergyStorage, MOBlockEntityType.INSCRIBER_BLOCK_ENTITY_TYPE);
     }
     public static void regItem(Item item, String name) {
         Registry.register(Registry.ITEM, new Identifier("matteroverdrive", name),item);

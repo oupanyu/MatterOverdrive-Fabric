@@ -1,7 +1,7 @@
 {
   "multipart": [
     {
-      "apply": { "model": "minecraft:block/cube", "uvlock": true}
+      "apply": { "model": "minecraft:block/cube", "uvlock": false}
     },
     {
       "apply": [

@@ -75,7 +75,7 @@ public class MainGroupReg {
         //Machines & Blocks
         MORegistry.regBlockInGroupMain(TRITANIUM_CRATE_BLOCK,"tritanium_crate_black");
         MORegistry.regBlockInGroupMain(TRITANIUM_CRATE_BLOCK_BLUE,"tritanium_crate_blue");
-        MORegistry.regEnergyBlock(TEST_POWER_BLOCK,"test");
+        MORegistry.regEnergyBlock(INSCRIBER_BLOCK,"inscriber");
 
 
 
@@ -90,7 +90,7 @@ public class MainGroupReg {
         Registry.register(Registry.ITEM,new Identifier("matteroverdrive","ion_sniper"),ION_SNIPER);
         Registry.register(Registry.ITEM,new Identifier("matteroverdrive","omni_tool"),OMNI_TOOL);
 
-        //Tools(valinna)
+        //Tools(vanilla)
         Registry.register(Registry.ITEM,new  Identifier("matteroverdrive","tritanium_pickaxe"),TRITANIUM_PICKAXE);
         Registry.register(Registry.ITEM,new  Identifier("matteroverdrive","tritanium_axe"),TRITANIUM_AXE);
         Registry.register(Registry.ITEM,new  Identifier("matteroverdrive","tritanium_shovel"),TRITANIUM_SHOVEL);

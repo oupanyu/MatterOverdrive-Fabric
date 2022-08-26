@@ -12,13 +12,13 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class InsciberRecipe implements Recipe<SimpleInventory> {
+public class InscriberRecipe implements Recipe<SimpleInventory> {
     private final Identifier id;
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
     private final Integer maxProgress;
 
-    public InsciberRecipe(Identifier id,ItemStack output,DefaultedList<Ingredient> recipeItems,Integer tick){
+    public InscriberRecipe(Identifier id,ItemStack output,DefaultedList<Ingredient> recipeItems,Integer tick){
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
@@ -65,23 +65,27 @@ public class InsciberRecipe implements Recipe<SimpleInventory> {
         return Type.INSTANCE;
     }
 
+    public Integer getTick(){
+        return maxProgress;
+    }
 
 
-    public static class Type implements RecipeType<InsciberRecipe> {
+
+    public static class Type implements RecipeType<InscriberRecipe> {
         private Type() {
         }
 
         public static final Type INSTANCE = new Type();
-        public static final String ID = "insciber";
+        public static final String ID = "inscriber";
     }
 
-    public static class Serializer implements RecipeSerializer<InsciberRecipe>{
+    public static class Serializer implements RecipeSerializer<InscriberRecipe>{
 
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "insciber";
+        public static final String ID = "inscriber";
 
         @Override
-        public InsciberRecipe read(Identifier id, JsonObject json) {
+        public InscriberRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json,"output"));
             JsonArray ingredients = JsonHelper.getArray(json,"ingredients");
             Integer tick = JsonHelper.getInt(json,"tick");
@@ -89,22 +93,22 @@ public class InsciberRecipe implements Recipe<SimpleInventory> {
             for(int i = 0; i < inputs.size(); i++){
                 inputs.set(i,Ingredient.fromJson(ingredients.get(i)));
             }
-            return new InsciberRecipe(id,output,inputs,tick);
+            return new InscriberRecipe(id,output,inputs,tick);
         }
 
         @Override
-        public InsciberRecipe read(Identifier id, PacketByteBuf buf) {
+        public InscriberRecipe read(Identifier id, PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(),Ingredient.EMPTY);
             for(int i = 0; i < inputs.size(); i++){
                 inputs.set(i,Ingredient.fromPacket(buf));
             }
             ItemStack output = buf.readItemStack();
             Integer tick = buf.readInt();
-            return new InsciberRecipe(id,output,inputs,tick);
+            return new InscriberRecipe(id,output,inputs,tick);
         }
 
         @Override
-        public void write(PacketByteBuf buf, InsciberRecipe recipe) {
+        public void write(PacketByteBuf buf, InscriberRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for (Ingredient ing : recipe.getIngredients()){
                 ing.write(buf);

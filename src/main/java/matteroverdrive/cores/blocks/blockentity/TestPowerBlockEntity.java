@@ -2,7 +2,7 @@ package matteroverdrive.cores.blocks.blockentity;
 
 import matteroverdrive.api.inventory.ImplementedInventory;
 import matteroverdrive.client.screen.TestScreenHandler;
-import matteroverdrive.cores.recipe.InsciberRecipe;
+import matteroverdrive.cores.recipe.InscriberRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -29,20 +29,19 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress;
-    private int energy = 72;
-    private int maxEnergy = 72;
+    private int maxEnergy = (int) capacity;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     public TestPowerBlockEntity(BlockPos pos, BlockState state) {
-        super(MOBlockEntityType.TEST_POWER_BLOCK_ENTITY_TYPE, pos, state, 100000, 10000, 0);
+        super(MOBlockEntityType.INSCRIBER_BLOCK_ENTITY_TYPE, pos, state, 100000, 10000, 0);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 switch (index){
                     case 0:return TestPowerBlockEntity.this.progress;
-                    //case 1:return TestPowerBlockEntity.this.maxProgress;
-                    case 2:return TestPowerBlockEntity.this.energy;
-                    case 3:return TestPowerBlockEntity.this.maxProgress;
+                    case 1:return TestPowerBlockEntity.this.maxProgress;
+                    case 2:return (int) TestPowerBlockEntity.this.EnergyStorage.amount;
+                    case 3:return TestPowerBlockEntity.this.maxEnergy;
                     default: return 0;
                 }
             }
@@ -54,13 +53,13 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
                         TestPowerBlockEntity.this.progress = value;
                         break;
                     case 1:
-
+                        TestPowerBlockEntity.this.maxProgress = value;
                         break;
                     case 2:
-                        TestPowerBlockEntity.this.energy = value;
+                        TestPowerBlockEntity.this.EnergyStorage.amount = value;
                         break;
                     case 3:
-                        TestPowerBlockEntity.this.maxProgress = value;
+                        TestPowerBlockEntity.this.maxEnergy = value;
                         break;
                 }
             }
@@ -77,21 +76,20 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
         }
     };
     public static void tick(World world, BlockPos pos, BlockState state, TestPowerBlockEntity entity) {
-        if (entity instanceof TestPowerBlockEntity) {
 
             if(hasRecipe(entity)){
                 if (!world.isClient && entity.EnergyStorage.amount >= 10) {
                     entity.EnergyStorage.amount -= 10;
+                    entity.progress++;
+                    if (entity.progress > entity.maxProgress){
+                        craftItem(entity);
+                    }
                 }
-                entity.progress++;
-                if (entity.progress > entity.maxProgress){
-                    craftItem(entity);
-                }
+
             }
             else {
                 entity.resetProgress();
             }
-        }
     }
 
     protected void writeNbt(NbtCompound nbt) {
@@ -126,7 +124,7 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         // 因为我们的类实现 Inventory，所以将*这个*提供给 ScreenHandler
         // 一开始只有服务器拥有物品栏，然后在 ScreenHandler 中同步给客户端
-        return new TestScreenHandler(syncId, playerInventory, this);
+        return new TestScreenHandler(syncId, playerInventory, this,this.propertyDelegate);
     }
 
     private static boolean hasRecipe(TestPowerBlockEntity entity){
@@ -135,8 +133,10 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
         for (int i = 0; i < entity.inventory.size();i++){
             inventory.setStack(i,entity.getStack(i));
         }
-        Optional<InsciberRecipe> match = world.getRecipeManager()
-                .getFirstMatch(InsciberRecipe.Type.INSTANCE,inventory,world);
+        Optional<InscriberRecipe> match = world.getRecipeManager()
+                .getFirstMatch(InscriberRecipe.Type.INSTANCE,inventory,world);
+        int maxP = match.isPresent() ? match.get().getTick() : 0;
+        entity.maxProgress = maxP;
         return match.isPresent() && canInsrertAmountIntoOutputSlot(inventory) && canInsrertAmountIntoOutputSlot(inventory,match.get().getOutput());
     }
 
@@ -156,8 +156,8 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
         for (int i = 0; i < entity.inventory.size(); i++) {
             inventory.setStack(i,entity.getStack(i));
         }
-        Optional<InsciberRecipe> match = world.getRecipeManager()
-                .getFirstMatch(InsciberRecipe.Type.INSTANCE,inventory,world);
+        Optional<InscriberRecipe> match = world.getRecipeManager()
+                .getFirstMatch(InscriberRecipe.Type.INSTANCE,inventory,world);
         if (match.isPresent()){
             entity.removeStack(0,1);
             entity.removeStack(1,1);

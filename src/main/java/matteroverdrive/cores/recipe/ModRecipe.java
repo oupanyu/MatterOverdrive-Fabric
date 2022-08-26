@@ -7,10 +7,10 @@ import net.minecraft.util.registry.Registry;
 
 public class ModRecipe {
     public static void registerRecipes(){
-        Registry.register(Registry.RECIPE_SERIALIZER,new Identifier(MatterOverdrive.monamespace,InsciberRecipe.Serializer.ID),
-                InsciberRecipe.Serializer.INSTANCE);
-        Registry.register(Registry.RECIPE_TYPE,new Identifier(MatterOverdrive.monamespace,InsciberRecipe.Type.ID),
-                InsciberRecipe.Type.INSTANCE);
+        Registry.register(Registry.RECIPE_SERIALIZER,new Identifier(MatterOverdrive.monamespace,InscriberRecipe.Serializer.ID),
+                InscriberRecipe.Serializer.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE,new Identifier(MatterOverdrive.monamespace,InscriberRecipe.Type.ID),
+                InscriberRecipe.Type.INSTANCE);
 
     }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "matteroverdrive:inscriber",
+  "ingredients": [
+    {
+      "item": "matteroverdrive:isolinear_circuit_mk3"
+    },
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "tick": 300,
+  "output": {
+    "item" : "matteroverdrive:isolinear_circuit_mk4"
+  }
+}
