@@ -5,7 +5,7 @@
 		},
 		{
 			"apply": [
-				{ "model": "matteroverdrive:block/inscriber" }
+				{ "model": "matteroverdrive:block/inscriber"}
 			]
 		}
 	]

@@ -1,0 +1,7 @@
+
+{
+  "parent": "minecraft:block/block",
+  "model": "matteroverdrive:block/inscriber",
+  "gui_light": "side"
+
+}

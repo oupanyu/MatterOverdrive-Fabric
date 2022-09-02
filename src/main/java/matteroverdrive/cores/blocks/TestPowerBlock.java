@@ -1,8 +1,8 @@
 package matteroverdrive.cores.blocks;
 
-import com.mojang.datafixers.types.templates.Check;
 import matteroverdrive.cores.blocks.blockentity.MOBlockEntityType;
 import matteroverdrive.cores.blocks.blockentity.TestPowerBlockEntity;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -10,23 +10,23 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.ServerMetadata;
-import net.minecraft.text.Text;
-import net.minecraft.text.Texts;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.EnergyStorage;
+
 
 public class TestPowerBlock extends BlockWithEntity {
+    public static final DirectionProperty FACING;
+    static{FACING = DirectionProperty.of("facing", new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST});}
     public TestPowerBlock(Settings settings) {
         super(settings.nonOpaque());
     }
@@ -77,5 +77,11 @@ public class TestPowerBlock extends BlockWithEntity {
         return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     }
 
+    @Override
+    protected void appendProperties(StateManager.Builder<Block,BlockState> builder){builder.add(FACING);}
+
+    public BlockState getPlacementState(ItemPlacementContext ctx){
+        return this.getDefaultState().with(FACING,ctx.getPlayerFacing().getOpposite());
+    }
 }
 
