@@ -39,21 +39,24 @@ public class TestScreenHandler extends ScreenHandler {
         inventory.onOpen(playerInventory.player);
         int m;
         int l;
+
         // 这会将槽位放置在 3×3 网格的正确位置中。这些槽位在客户端和服务器中都存在！
         // 但是这不会渲染槽位的背景，这是 Screens job
-        this.addSlot(new SlotInput(inventory, 0, -4, 34));
-        this.addSlot(new SlotInput(inventory, 1, -4, 61));
-        this.addSlot(new SlotInput(inventory, 2, -4, 88));//Battery Slot
-        this.addSlot(new SlotOutput(inventory, 3, 63, 34));
+        this.addSlot(new SlotInput(inventory, 0, 8, 53));
+        this.addSlot(new SlotInput(inventory, 1, 8, 80));
+        this.addSlot(new SlotInput(inventory, 2, 8, 106));//Battery Slot
+        this.addSlot(new SlotOutput(inventory, 3, 75, 53));
 
+
+        // 玩家物品栏
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 32 + l * 18, 75 + m * 18));
+                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 45 + l * 18, 92 + m * 18));
             }
         }
         // 玩家快捷栏
         for (m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, 32 + m * 18, 133));
+            this.addSlot(new Slot(playerInventory, m, 45 + m * 18, 150));
         }
         addProperties(propertyDelegate);
     }
@@ -89,7 +92,7 @@ public class TestScreenHandler extends ScreenHandler {
     public int getScaledEnergyForTexture(){
         int energy = propertyDelegate.get(2);
         int maxEnergy = propertyDelegate.get(3);
-        return energy != 0 && maxEnergy != 0 ? 42 * (maxEnergy - energy) / maxEnergy : 0;
+        return energy != 0 && maxEnergy != 0 ? 42 * (maxEnergy - energy) / maxEnergy : 42;
     }
 }
 

@@ -2,6 +2,7 @@ package matteroverdrive.cores.blocks.blockentity;
 
 import matteroverdrive.api.inventory.ImplementedInventory;
 import matteroverdrive.client.screen.TestScreenHandler;
+import matteroverdrive.cores.blocks.TestPowerBlock;
 import matteroverdrive.cores.recipe.InscriberRecipe;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,7 +19,9 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import team.reborn.energy.api.base.SimpleBatteryItem;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
+import team.reborn.energy.impl.SimpleItemEnergyStorageImpl;
 
 import java.util.Optional;
 
@@ -90,6 +93,10 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
             else {
                 entity.resetProgress();
             }
+            if (canCharge(entity)){
+                charge(entity);
+            }
+
     }
 
     protected void writeNbt(NbtCompound nbt) {
@@ -140,7 +147,19 @@ public class TestPowerBlockEntity extends GenericPowerAcceptorBlockEntity implem
         return match.isPresent() && canInsrertAmountIntoOutputSlot(inventory) && canInsrertAmountIntoOutputSlot(inventory,match.get().getOutput());
     }
 
+    private static boolean canCharge(TestPowerBlockEntity entity){
+        return entity.getStack(2).getItem() instanceof SimpleBatteryItem;
 
+    }
+    private static void charge(TestPowerBlockEntity entity){
+        ItemStack stack = entity.getStack(2);
+        SimpleBatteryItem simpleBatteryItem = (SimpleBatteryItem) entity.getStack(2).getItem();
+        if (simpleBatteryItem.getStoredEnergy(stack) > 0){
+            simpleBatteryItem.tryUseEnergy(stack,1000);
+            entity.EnergyStorage.amount += 1000;
+        }
+
+    }
 
 
     private static boolean canInsrertAmountIntoOutputSlot(SimpleInventory inventory,ItemStack output){

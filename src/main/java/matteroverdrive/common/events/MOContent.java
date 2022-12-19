@@ -15,6 +15,7 @@ import matteroverdrive.cores.tools.TritaniumPickaxeItem;
 import matteroverdrive.cores.tools.TritaniumToolMaterial;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.GlassBlock;
 import net.minecraft.block.Material;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
@@ -83,8 +84,8 @@ public class MOContent {
     public static final Block MATTER_TUBE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0f).requiresTool());
     public static final Block TRITANIUM_GRATE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(3.0f).requiresTool());
 
-    public static final Block INDUSTRIAL_GLASS_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS).hardness(3.0f).nonOpaque().requiresTool());
-    public static final Block TRITANIUM_GLASS_BLOCK = new Block(FabricBlockSettings.of(Material.GLASS).hardness(3.0f).nonOpaque().requiresTool());
+    public static final Block INDUSTRIAL_GLASS_BLOCK = new GlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(3.0f).nonOpaque().requiresTool());
+    public static final Block TRITANIUM_GLASS_BLOCK = new GlassBlock(FabricBlockSettings.of(Material.GLASS).hardness(3.0f).nonOpaque().requiresTool());
 
 
 }
